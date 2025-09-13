@@ -1,0 +1,13 @@
+---
+title: build
+---
+
+classDiagram
+
+    class GridBuilder {
+        + List<Grid<CombatUnit>> buildFromLegion(Legion legion)
+    }
+
+    class LegionFactory {
+        + Legion create(ArgumentValidator validator)
+    }

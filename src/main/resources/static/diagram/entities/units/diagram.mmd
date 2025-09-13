@@ -1,0 +1,49 @@
+---
+title: entities.units
+---
+
+classDiagram
+
+    class UnitRepresentation~T~ {
+        T toProcessNumeric()
+        T toProcessSymbol()
+    }
+    <<Interface>> UnitRepresentation
+
+    class CombatUnit {
+        - Character symbol
+        - Integer value
+        + Character getSymbol()
+        + Integer getValue()
+        + boolean equals(Object o)
+        + int hashCode()
+        + String toString()
+    }
+    <<Abstract>> CombatUnit
+
+    CombatUnit ..|> UnitRepresentation
+
+    class Commander {
+    }
+
+    class Doctor{
+    }
+
+    class Infantry{
+    }
+
+    class Sniper{
+    }
+
+    class Tank{
+    }
+
+    class Empty{
+    }
+
+    Commander ..|> CombatUnit
+    Doctor ..|> CombatUnit
+    Infantry ..|> CombatUnit
+    Sniper ..|> CombatUnit
+    Tank ..|> CombatUnit
+    Empty ..|> CombatUnit

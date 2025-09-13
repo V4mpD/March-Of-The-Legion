@@ -1,0 +1,62 @@
+---
+title: validation
+---
+
+classDiagram
+
+    class ArgumentValidator {
+        - char algorithm
+        - char type
+        - String[] args
+        - char disposition
+        - char orientation
+        - int fieldSize
+        - List<Integer> units
+
+        + char getAlgorithm()
+        + char getType()
+        + List<Integer> getUnits()
+        + char getDisposition()
+        + char getOrientation()
+        + int getFieldSize()
+        + void validateAlgorithm()
+        + void validateType()
+        + void validateUnits()
+        + void validateOrientation()
+        + void validateFieldSize()
+        + String getValueKey(String key)
+        + String toString()
+    }
+
+    class ArgumentAlgorithm {
+        BUBBLESORT
+        SELECTIONSORT
+        QUICKSORT
+        MERGESORT
+    }
+    <<ENUM>> ArgumentAlgorithm
+
+    class ArgumentFieldSize {
+        + int getIntValue(String value)$
+        + boolean verifyRangeFieldSize(int size)$
+    }
+
+    class ArgumentOrientation {
+        NORTH
+        SOUTH
+        EAST
+        WEST
+    }
+    <<ENUM>> ArgumentOrientation
+
+    class ArgumentType {
+        NUMBER
+        CHARACTER
+    }
+
+    class ArgumentUnit {
+        + boolean validateFormatUnit(String unit)$
+        + List<Integer> turnToList(String unit)$
+        + String getValueUnit(List<Integer> units)$
+    }
+

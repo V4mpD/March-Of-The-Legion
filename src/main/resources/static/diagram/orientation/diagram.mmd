@@ -1,0 +1,33 @@
+---
+title: ordenation
+---
+
+classDiagram
+
+    class FormationStrategy {
+        List~List~CombatUnit~~ arrange(Battlefield battlefield);
+    }
+
+    class EastFormation {
+    }
+
+    class NorthFormation {
+    }
+
+    class SouthFormation {
+    }
+
+    class WestFormationn {
+    }
+
+    class TroopFormation {
+        - final FormationStrategy formationStrategy
+        - Battlefield battlefield
+        + List~List~CombatUnit~~ form()
+    }
+
+    FormationStrategy ..|> EastFormation
+    FormationStrategy ..|> NorthFormation
+    FormationStrategy ..|> SouthFormation
+    FormationStrategy ..|> WestFormationn
+    TroopFormation --* FormationStrategy

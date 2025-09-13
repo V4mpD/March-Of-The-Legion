@@ -1,0 +1,70 @@
+---
+title: Algorithm.sort
+---
+
+classDiagram
+
+    class SortingStrategy~T~ {
+        List~T~ sort(List~T~ list)
+    }
+    <<Interface>> SortingStrategy
+
+    class BubbleSort~T~ {
+    }
+
+    class SelectionSort~T~ {
+    }
+
+    class MergeSort~T~ {
+    }
+
+    class QuickSort~T~ {
+    }
+
+    BubbleSort ..|> SortingStrategy
+    SelectionSort ..|> SortingStrategy
+    MergeSort ..|> SortingStrategy
+    QuickSort ..|> SortingStrategy
+
+
+    class BubbleSortWithSteps~T~ {
+        - final StepHandler~T~ steps
+        + StepHandler~T~ getStepHandler()
+    }
+
+    class SelectionSortWithSteps~T~ {
+        - final StepHandler~T~ steps
+        + StepHandler~T~ getStepHandler()
+    }
+
+    class MergeSortWithSteps~T~ {
+        - final StepHandler~T~ steps
+        + StepHandler~T~ getStepHandler()
+    }
+
+    class QuickSortWithSteps~T~ {
+        - final StepHandler~T~ steps
+        + StepHandlerr~T~ getStepHandler()
+    }
+
+    BubbleSortWithSteps --|> BubbleSort
+    SelectionSortWithSteps --|> SelectionSort
+    MergeSortWithSteps --|> MergeSort
+    QuickSortWithSteps --|> QuickSort
+
+    class StepHandler~T~ {
+        void onStep(List~T~ currentList)
+    }
+
+    class MemoryStepHandler~T~ {
+        - final List~List~T~~ steps
+        + List~List~T~~ getSteps()
+    }
+
+    MemoryStepHandler ..|> StepHandler
+
+    StepHandler <|.. BubbleSortWithSteps
+    StepHandler <|.. SelectionSortWithSteps
+    StepHandler <|.. MergeSortWithSteps
+    StepHandler <|.. QuickSortWithSteps
+

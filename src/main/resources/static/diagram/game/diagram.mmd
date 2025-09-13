@@ -1,0 +1,58 @@
+---
+title: formatter
+---
+
+classDiagram
+
+    class BattlefieldFormationFactory {
+        + Battlefield create(ArgumentValidator argumentValidator)
+    }
+
+    class CombatUnitPrinterFactory {
+        + CombatUnitPrinter create(String type)$
+    }
+
+    class FormationStrategyFactory {
+        + FormationStrategy create(String orientation)$
+    }
+
+    class SortingStrategyFactory {
+        SortingStrategy<CombatUnit> create(String algorithm, MemoryStepHandler<CombatUnit> memoryStep)$
+    }
+
+    class TroopFactory {
+        + List<CombatUnit> create(List<Integer> qtdTroops)$
+    }
+
+    class TroopRandomFactory {
+        + List<CombatUnit> create(List<Integer> qtdTroops)$
+    }
+
+    class BattlefieldPositionGenerator {
+        + List<Integer[]> generateUniquePositions(int sizeRow, int sizeCol, int qtdPositions)$
+    }
+
+    class BattlefieldUnitPopulator {
+        + void generateRandomPositionInGrid(Battlefield battlefield, List<CombatUnit> totalTroops)
+    }
+
+    BattlefieldPositionGenerator <-- BattlefieldUnitPopulator
+    BattlefieldUnitPopulator --> Legion
+
+    class Legion {
+        - final ArgumentValidator argumentValidator
+        - final MemoryStepHandler~CombatUnit~ memoryStep
+        - TroopFormation troopFormation
+        - FormationStrategy formationStrategy
+        - CombatUnitPrinter combatUnitPrinter
+        - SortingStrategy~CombatUnit~ sortingStrategy
+        - Battlefield battlefield
+        - List~CombatUnit~ troopUnits
+    }
+
+    Legion *-- SortingStrategyFactory
+    Legion *-- FormationStrategyFactory
+    Legion *-- TroopFactory
+    Legion *-- TroopRandomFactory
+    Legion *-- CombatUnitPrinterFactory
+    Legion *-- BattlefieldFormationFactory

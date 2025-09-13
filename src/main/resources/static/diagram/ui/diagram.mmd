@@ -1,0 +1,34 @@
+---
+title: ui
+---
+
+classDiagram
+
+    class BattlefieldUI {
+        - int width
+        - int height
+        - ArgumentValidator argumentValidator
+        - List~Grid~CombatUnit~~ grips
+        - void insertTroopOnGridBlock(int size, JPanel panel)
+    }
+
+    class GridUI {
+        - int row
+        - int col
+        + int getRow()
+        + int getCol()
+        # void paintComponent(Graphics g)
+    }
+
+    class TroopUI {
+        - int width
+        - int height
+        - CombatUnit combatUnit
+        - Image image
+        - String orientation
+        # void paintComponent(Graphics g)
+        - String pathImageCombatUnit()
+    }
+
+    BattlefieldUI <-- GridUI
+    BattlefieldUI <-- TroopUI

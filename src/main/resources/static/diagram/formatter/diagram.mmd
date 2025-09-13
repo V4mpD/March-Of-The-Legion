@@ -1,0 +1,28 @@
+---
+title: formatter
+---
+
+classDiagram
+
+    class Printer~T~ {
+        String format(T text);
+        default String spacing(T unit)
+    }
+
+    class SymbolFormatterUnit {
+        - String format(CombatUnit unit)
+    }
+
+    class NumericFormatterUnit {
+        - String format(CombatUnit unit)
+    }
+
+    SymbolFormatterUnit ..|> Printer
+    NumericFormatterUnit ..|> Printer
+
+    class CombatUnitPrinter {
+        - final Printer~CombatUnit~ printer
+        + void print(List<List<CombatUnit>> matrixUnits)
+    }
+
+    CombatUnitPrinter --* Printer

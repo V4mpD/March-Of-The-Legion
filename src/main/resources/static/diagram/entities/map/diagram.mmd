@@ -1,0 +1,28 @@
+---
+title: entities.map
+---
+
+classDiagram
+
+    class Battlefield {
+        - Integer sizeSides
+        - List~List~CombatUnit~~ matrixUnits
+        - BattlefieldGenerator battlefieldGenerator
+        + List~List~CombatUnit~~ getMatrixUnits()
+        + void setMatrixUnits(List~List~CombatUnit~~ matrixUnits)
+        + Integer getSizeSides()
+        + void setSizeSides(Integer sizeSides)
+        + void valueAt(int row, int col, CombatUnit unit)
+        - void validateMatrix()
+    }
+
+    class BattlefieldGenerator {
+        List~List~CombatUnit~~ generate(int size);
+    }
+
+    class SquareBattlefieldGenerator {
+        + List<List<CombatUnit>> generate(int size)
+    }
+
+    SquareBattlefieldGenerator ..|> BattlefieldGenerator
+    Battlefield --> BattlefieldGenerator

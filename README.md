@@ -69,23 +69,23 @@
     <th>Images</th>
   </tr>
   <tr>
-    <td><br>Commander ("C", 10)</td>
+    <td>Commander ("C", 10)</td>
     <td><img src="src/main/resources/static/image/troops/commander.png" width="50"></td>
   </tr>
   <tr>
-    <td><br>Doctor ("M", 20)</td>
+    <td>Doctor ("M", 20)</td>
     <td><img src="src/main/resources/static/image/troops/doctor.png" width="50"></td>
   </tr>
   <tr>
-    <td><br>Tank ("T", 30)</td>
+    <td>Tank ("T", 30)</td>
     <td><img src="src/main/resources/static/image/troops/tank.png" width="50"></td>
   </tr>
   <tr>
-    <td><br>Sniper ("S", 40)</td>
+    <td>Sniper ("S", 40)</td>
     <td><img src="src/main/resources/static/image/troops/sniper.png" width="50"></td>
   </tr>
   <tr>
-    <td><br>Infantry ("I", 50)</td>
+    <td>Infantry ("I", 50)</td>
     <td><img src="src/main/resources/static/image/troops/infantry.png" width="50"></td>
   </tr>
 </table>
